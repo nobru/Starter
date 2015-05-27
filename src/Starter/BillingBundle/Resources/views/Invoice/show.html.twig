@@ -4,11 +4,11 @@
 {% block mainbar %}
 <div class="page-head">
   <div class="bread-crumb">
-    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+    <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a>
     <span class="divider">/</span>
-    <a href="{{ path('admin_billing') }}">Billling</a>
+    <a href="{{ path('starter_billing') }}">Billling</a>
     <span class="divider">/</span>
-    <a href="{{ path('admin_billing_invoice') }}">Invoices</a>
+    <a href="{{ path('starter_billing_invoice') }}">Invoices</a>
     <span class="divider">/</span>
     <span class="bread-current">Show invoice</span>
   </div>
@@ -33,7 +33,7 @@
       <tr>
         <th>Billing</th>
         <td>
-          <a href="{{ path('admin_billing_edit', {'id' : entity.billing.id}) }}">
+          <a href="{{ path('starter_billing_edit', {'id' : entity.billing.id}) }}">
             <strong>ID:</strong> {{ entity.billing.id }}, 
             <strong>Account:</strong> {{ entity.billing.account.owner.name }},
             <strong>Start at:</strong> {{ entity.billing.createdat|date('Y-m-d') }}
@@ -52,8 +52,8 @@
   </table>
 </div>
 <div class="span12">
-  <a href="{{ path('admin_billing_invoice') }}" class="btn">Back</a>
-  <a href="{{ path('admin_billing_invoice_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
+  <a href="{{ path('starter_billing_invoice') }}" class="btn">Back</a>
+  <a href="{{ path('starter_billing_invoice_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
 </div>
 {% endblock %}
 

@@ -20,7 +20,7 @@ class AccountController extends Controller
     /**
      * Lists all Account entities.
      *
-     * @Route("/", name="admin_account")
+     * @Route("/", name="starter_account")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class AccountController extends Controller
     /**
      * Creates a new Account entity.
      *
-     * @Route("/", name="admin_account_create")
+     * @Route("/", name="starter_account_create")
      * @Method("POST")
      * @Template("StarterUserBundle:Account:new.html.twig")
      */
@@ -54,7 +54,7 @@ class AccountController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_account'));
+            return $this->redirect($this->generateUrl('starter_account'));
         }
 
         return array(
@@ -66,7 +66,7 @@ class AccountController extends Controller
     /**
      * Displays a form to create a new Account entity.
      *
-     * @Route("/new", name="admin_account_new")
+     * @Route("/new", name="starter_account_new")
      * @Method("GET")
      * @Template()
      */
@@ -84,7 +84,7 @@ class AccountController extends Controller
     /**
      * Finds and displays a Account entity.
      *
-     * @Route("/{id}", name="admin_account_show")
+     * @Route("/{id}", name="starter_account_show")
      * @Method("GET")
      * @Template()
      */
@@ -109,7 +109,7 @@ class AccountController extends Controller
     /**
      * Displays a form to edit an existing Account entity.
      *
-     * @Route("/{id}/edit", name="admin_account_edit")
+     * @Route("/{id}/edit", name="starter_account_edit")
      * @Method("GET")
      * @Template()
      */
@@ -136,7 +136,7 @@ class AccountController extends Controller
     /**
      * Edits an existing Account entity.
      *
-     * @Route("/{id}", name="admin_account_update")
+     * @Route("/{id}", name="starter_account_update")
      * @Method("PUT")
      * @Template("StarterUserBundle:Account:edit.html.twig")
      */
@@ -158,7 +158,7 @@ class AccountController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_account'));
+            return $this->redirect($this->generateUrl('starter_account'));
         }
 
         return array(
@@ -171,7 +171,7 @@ class AccountController extends Controller
     /**
      * Deletes a Account entity.
      *
-     * @Route("/{id}", name="admin_account_delete")
+     * @Route("/{id}", name="starter_account_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -191,7 +191,7 @@ class AccountController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('admin_account'));
+        return $this->redirect($this->generateUrl('starter_account'));
     }
 
     /**

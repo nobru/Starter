@@ -4,13 +4,13 @@
 {% block mainbar %}
 <div class="page-head">
   <div class="bread-crumb">
-    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a> 
+    <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a> 
     <span class="divider">/</span> 
     <span class="bread-current">Users</span>
   </div>
   <h2 class="pull-left">Users</h2>
   <div class="pull-right">
-    <a href="{{ path('admin_user_new') }}" class="btn btn-primary">Create a new user</a>
+    <a href="{{ path('starter_user_new') }}" class="btn btn-primary">Create a new user</a>
   </div>
   <div class="clearfix"></div>
 </div>
@@ -30,14 +30,14 @@
     <tbody>
     {% for entity in entities %}
       <tr>
-        <td><a href="{{ path('admin_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+        <td><a href="{{ path('starter_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
         <td>{{ entity.name }}</td>
         <td>{{ entity.username }}</td>
-        <td>{% if entity.account and entity.account.id %}<a href="{{ path('admin_account_show', {'id' : entity.account.id}) }}">{{ entity.account.id }}</a>{% else %}<i>No account</i>{% endif %}</td>
+        <td>{% if entity.account and entity.account.id %}<a href="{{ path('starter_account_show', {'id' : entity.account.id}) }}">{{ entity.account.id }}</a>{% else %}<i>No account</i>{% endif %}</td>
         <td>{% if entity.isActive %}<span class="label label-success">active</span>{% else %}<span class="label label-danger">inactive</span>{% endif %}</td>
         <td>
-          <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
-          <a href="{{ path('admin_user_show', { 'id': entity.id }) }}" class="btn btn-mini">show</a>
+          <a href="{{ path('starter_user_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
+          <a href="{{ path('starter_user_show', { 'id': entity.id }) }}" class="btn btn-mini">show</a>
         </td>
       </tr>
     {% endfor %}

@@ -25,6 +25,6 @@ class PlanType extends AbstractType
 
     public function getName()
     {
-        return 'admin_planbundle_plantype';
+        return 'starter_planbundle_plantype';
     }
 }

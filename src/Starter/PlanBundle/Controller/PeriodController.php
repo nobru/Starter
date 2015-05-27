@@ -20,7 +20,7 @@ class PeriodController extends Controller
     /**
      * Lists all Period entities.
      *
-     * @Route("/", name="admin_plan_period")
+     * @Route("/", name="starter_plan_period")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class PeriodController extends Controller
     /**
      * Creates a new Period entity.
      *
-     * @Route("/", name="admin_plan_period_create")
+     * @Route("/", name="starter_plan_period_create")
      * @Method("POST")
      * @Template("StarterPlanBundle:Period:new.html.twig")
      */
@@ -53,7 +53,7 @@ class PeriodController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_plan_period'));
+            return $this->redirect($this->generateUrl('starter_plan_period'));
         }
 
         return array(
@@ -65,7 +65,7 @@ class PeriodController extends Controller
     /**
      * Displays a form to create a new Period entity.
      *
-     * @Route("/new", name="admin_plan_period_new")
+     * @Route("/new", name="starter_plan_period_new")
      * @Method("GET")
      * @Template()
      */
@@ -83,7 +83,7 @@ class PeriodController extends Controller
     /**
      * Displays a form to edit an existing Period entity.
      *
-     * @Route("/{id}/edit", name="admin_plan_period_edit")
+     * @Route("/{id}/edit", name="starter_plan_period_edit")
      * @Method("GET")
      * @Template()
      */
@@ -110,7 +110,7 @@ class PeriodController extends Controller
     /**
      * Edits an existing Period entity.
      *
-     * @Route("/{id}", name="admin_plan_period_update")
+     * @Route("/{id}", name="starter_plan_period_update")
      * @Method("PUT")
      * @Template("StarterPlanBundle:Period:edit.html.twig")
      */
@@ -132,7 +132,7 @@ class PeriodController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_plan_period_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('starter_plan_period_edit', array('id' => $id)));
         }
 
         return array(
@@ -145,7 +145,7 @@ class PeriodController extends Controller
     /**
      * Deletes a Period entity.
      *
-     * @Route("/{id}", name="admin_plan_period_delete")
+     * @Route("/{id}", name="starter_plan_period_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -165,7 +165,7 @@ class PeriodController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('admin_plan_period'));
+        return $this->redirect($this->generateUrl('starter_plan_period'));
     }
 
     /**

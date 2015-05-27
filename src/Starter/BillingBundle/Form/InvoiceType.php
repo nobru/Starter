@@ -29,6 +29,6 @@ class InvoiceType extends AbstractType
 
     public function getName()
     {
-        return 'admin_billingbundle_invoicetype';
+        return 'starter_billingbundle_invoicetype';
     }
 }

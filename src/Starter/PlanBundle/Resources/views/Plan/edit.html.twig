@@ -4,26 +4,26 @@
 {% block mainbar %}
   <div class="page-head">
     <div class="bread-crumb">
-      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a> 
+      <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a> 
       <span class="divider">/</span> 
-      <a href="{{ path('admin_plan') }}" class="bread-current">Plans</a>
+      <a href="{{ path('starter_plan') }}" class="bread-current">Plans</a>
     </div>
     <h2 class="pull-left">Edit plan</h2>
     <div class="clearfix"></div>
   </div>
   <div class="container-fluid">
-    <form action="{{ path('admin_plan_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <form action="{{ path('starter_plan_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
         {{ form_widget(edit_form) }}
         <div class="form-buttons">
             <button type="submit" class="btn btn-primary">Save</button> 
             <a href="#modal-delete" role="button" class="btn btn-danger" data-toggle="modal">Delete</a>
-            <a href="{{ path('admin_plan') }}" class="btn">Back</a>
+            <a href="{{ path('starter_plan') }}" class="btn">Back</a>
         </div>
     </form>
   </div>
 {% set modal_title  = 'Delete plan' %}
-{% set modal_action = path('admin_plan_delete', {'id' : entity.id}) %}
+{% set modal_action = path('starter_plan_delete', {'id' : entity.id}) %}
 {% set modal_text   = 'Do you really want to delete the plan?' %}
 {% set entity_id    = entity.id %}
         {% include('StarterBaseBundle:Default:modal_delete.html.twig') %}

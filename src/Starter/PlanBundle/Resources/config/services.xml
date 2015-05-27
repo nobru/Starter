@@ -6,11 +6,11 @@
 
     <!--
     <parameters>
-        <parameter key="admin_plan.example.class">Starter\PlanBundle\Example</parameter>
+        <parameter key="starter_plan.example.class">Starter\PlanBundle\Example</parameter>
     </parameters>
 
     <services>
-        <service id="admin_plan.example" class="%admin_plan.example.class%">
+        <service id="starter_plan.example" class="%starter_plan.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>

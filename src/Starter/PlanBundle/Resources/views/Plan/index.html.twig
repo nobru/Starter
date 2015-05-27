@@ -4,13 +4,13 @@
 {% block mainbar %}
   <div class="page-head">
     <div class="bread-crumb">
-      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+      <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a>
       <span class="divider">/</span>
       <a href="#" class="bread-current">Plans</a>
     </div>
     <h2 class="pull-left">Plans</h2>
     <div class="pull-right">
-      <a href="{{ path('admin_plan_new') }}" class="btn btn-primary">Create a new plan</a>
+      <a href="{{ path('starter_plan_new') }}" class="btn btn-primary">Create a new plan</a>
     </div>
     <div class="clearfix"></div>
   </div>
@@ -30,12 +30,12 @@
           <tbody>
           {% for entity in entities %}
             <tr>
-              <td><a href="{{ path('admin_plan_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+              <td><a href="{{ path('starter_plan_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
               <td>{{ entity.name }}</td>
               <td>{% if entity.isActive %}<span class="label label-success">active</span>{% else %}<span class="label label-danger">inactive</span>{% endif %}</td>
               <td>
-                <a class="btn btn-mini btn-warning" href="{{ path('admin_plan_edit', { 'id': entity.id }) }}">edit</a>
-                <a class="btn btn-mini" href="{{ path('admin_plan_show', { 'id': entity.id }) }}">show</a>
+                <a class="btn btn-mini btn-warning" href="{{ path('starter_plan_edit', { 'id': entity.id }) }}">edit</a>
+                <a class="btn btn-mini" href="{{ path('starter_plan_show', { 'id': entity.id }) }}">show</a>
               </td>
             </tr>
           {% endfor %}
@@ -46,7 +46,7 @@
     {% else %}
     <div style="text-align:center">
       <h3>No plan yet created</h3>
-      <a href="{{ path('admin_plan_new') }}" class="btn btn-primary">Create a new plan</a>
+      <a href="{{ path('starter_plan_new') }}" class="btn btn-primary">Create a new plan</a>
     </div>
     {% endif %}
   </div>

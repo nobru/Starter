@@ -4,13 +4,13 @@
 {% block mainbar %}
 <div class="page-head">
   <div class="bread-crumb">
-    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+    <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a>
     <span class="divider">/</span>
     <span class="bread-current">Billing</span>
   </div>
   <h2 class="pull-left">Billing</h2>
   <div class="pull-right">
-    <a href="{{ path('admin_billing_new') }}" class="btn btn-primary">Create a new billing</a>
+    <a href="{{ path('starter_billing_new') }}" class="btn btn-primary">Create a new billing</a>
   </div>
   <div class="clearfix"></div>
 </div>
@@ -31,15 +31,15 @@
       <tbody>
       {% for entity in entities %}
         <tr>
-          <td><a href="{{ path('admin_billing_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+          <td><a href="{{ path('starter_billing_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
           <td>{{ entity.account.owner.name }}</td>
           <td>{{ entity.plan.name }}</td>
           <td>{{ entity.period.name }}</td>
           <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d') }}{% endif %}</td>
           <td>{% if entity.status %}{{ entity.status.name }}{% endif %}</td>
           <td>
-            <a href="{{ path('admin_billing_show', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">show</a>
-            <a href="{{ path('admin_billing_edit', { 'id': entity.id }) }}" class="btn btn-mini">edit</a>
+            <a href="{{ path('starter_billing_show', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">show</a>
+            <a href="{{ path('starter_billing_edit', { 'id': entity.id }) }}" class="btn btn-mini">edit</a>
           </td>
         </tr>
       {% endfor %}

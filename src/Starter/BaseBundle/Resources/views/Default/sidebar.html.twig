@@ -12,7 +12,7 @@
         </div>
         <ul class="navi">
           <li class="has_submenu nred{% if current_page == 'dashboard' %} current{% endif %}">
-            <a href="{{ path('admin_dashboard') }}"><i class="icon-desktop"></i> Dashboard</a>
+            <a href="{{ path('starter_dashboard') }}"><i class="icon-desktop"></i> Dashboard</a>
           </li>
           <li class="has_submenu ngreen{% if current_page == 'billing' %}  current{% endif %}">
             <a href="#">
@@ -20,8 +20,8 @@
               <span class="pull-right"><i class="icon-angle-right"></i></span>
             </a>
             <ul>
-              <li><a href="{{ path('admin_billing') }}">Billing</a></li>
-              <li><a href="{{ path('admin_billing_invoice') }}">Invoices</a></li>
+              <li><a href="{{ path('starter_billing') }}">Billing</a></li>
+              <li><a href="{{ path('starter_billing_invoice') }}">Invoices</a></li>
             </ul>
           </li>
           <li class="has_submenu norange{% if current_page == 'plan' %} current{% endif %}">
@@ -30,9 +30,9 @@
               <span class="pull-right"><i class="icon-angle-right"></i></span>
             </a>
             <ul>
-              <li><a href="{{ path('admin_plan') }}">Plans</a></li>
-              <li><a href="{{ path('admin_plan_price') }}">Prices</a></li>
-              <li><a href="{{ path('admin_plan_period') }}">Periods</a></li>
+              <li><a href="{{ path('starter_plan') }}">Plans</a></li>
+              <li><a href="{{ path('starter_plan_price') }}">Prices</a></li>
+              <li><a href="{{ path('starter_plan_period') }}">Periods</a></li>
             </ul>
           </li>
           <li class="has_submenu nlightblue{% if current_page == 'user' %} current{% endif %}">
@@ -42,8 +42,8 @@
             </a>
 
             <ul>
-              <li><a href="{{ path('admin_account') }}">Accounts</a></li>
-              <li><a href="{{ path('admin_user') }}">Users</a></li>
+              <li><a href="{{ path('starter_account') }}">Accounts</a></li>
+              <li><a href="{{ path('starter_user') }}">Users</a></li>
             </ul>
           </li>
 
@@ -68,7 +68,7 @@
             </a>
 
             <ul>
-              <li><a href="{{ path('admin_settings_upload') }}">Upload</a></li>
+              <li><a href="{{ path('starter_settings_upload') }}">Upload</a></li>
             </ul>
           </li>
         </ul>

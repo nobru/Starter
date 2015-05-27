@@ -4,9 +4,9 @@
 {% block mainbar %}
   <div class="page-head">
     <div class="bread-crumb">
-      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+      <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a>
       <span class="divider">/</span>
-      <a href="{{ path('admin_user') }}">Billing</a>
+      <a href="{{ path('starter_user') }}">Billing</a>
       <span class="divider">/</span>
       <span class="bread-current">New billing</span>
     </div>
@@ -14,11 +14,11 @@
     <div class="clearfix"></div>
   </div>
   <div class="container-fluid">
-    <form action="{{ path('admin_billing_create') }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('starter_billing_create') }}" method="post" {{ form_enctype(form) }}>
       {{ form_widget(form) }}
       <p>
         <button type="submit" class="btn btn-primary">Create</button>
-        <a href="{{ path('admin_billing') }}" class="btn">Back</a>
+        <a href="{{ path('starter_billing') }}" class="btn">Back</a>
       </p>
     </form>
   </div>

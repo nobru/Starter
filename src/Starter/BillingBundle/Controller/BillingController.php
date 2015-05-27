@@ -20,7 +20,7 @@ class BillingController extends Controller
     /**
      * Lists all Billing entities.
      *
-     * @Route("/", name="admin_billing")
+     * @Route("/", name="starter_billing")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class BillingController extends Controller
     /**
      * Creates a new Billing entity.
      *
-     * @Route("/", name="admin_billing_create")
+     * @Route("/", name="starter_billing_create")
      * @Method("POST")
      * @Template("StarterBillingBundle:Billing:new.html.twig")
      */
@@ -56,7 +56,7 @@ class BillingController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_billing'));
+            return $this->redirect($this->generateUrl('starter_billing'));
         }
 
         return array(
@@ -68,7 +68,7 @@ class BillingController extends Controller
     /**
      * Displays a form to create a new Billing entity.
      *
-     * @Route("/new", name="admin_billing_new")
+     * @Route("/new", name="starter_billing_new")
      * @Method("GET")
      * @Template()
      */
@@ -86,7 +86,7 @@ class BillingController extends Controller
     /**
      * Finds and displays a Billing entity.
      *
-     * @Route("/{id}", name="admin_billing_show")
+     * @Route("/{id}", name="starter_billing_show")
      * @Method("GET")
      * @Template()
      */
@@ -111,7 +111,7 @@ class BillingController extends Controller
     /**
      * Displays a form to edit an existing Billing entity.
      *
-     * @Route("/{id}/edit", name="admin_billing_edit")
+     * @Route("/{id}/edit", name="starter_billing_edit")
      * @Method("GET")
      * @Template()
      */
@@ -138,7 +138,7 @@ class BillingController extends Controller
     /**
      * Edits an existing Billing entity.
      *
-     * @Route("/{id}", name="admin_billing_update")
+     * @Route("/{id}", name="starter_billing_update")
      * @Method("PUT")
      * @Template("StarterBillingBundle:Billing:edit.html.twig")
      */
@@ -163,7 +163,7 @@ class BillingController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_billing'));
+            return $this->redirect($this->generateUrl('starter_billing'));
         }
 
         return array(
@@ -176,7 +176,7 @@ class BillingController extends Controller
     /**
      * Deletes a Billing entity.
      *
-     * @Route("/{id}", name="admin_billing_delete")
+     * @Route("/{id}", name="starter_billing_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -196,7 +196,7 @@ class BillingController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('admin_billing'));
+        return $this->redirect($this->generateUrl('starter_billing'));
     }
 
     /**

@@ -26,6 +26,6 @@ class PeriodType extends AbstractType
 
     public function getName()
     {
-        return 'admin_planbundle_periodtype';
+        return 'starter_planbundle_periodtype';
     }
 }

@@ -27,6 +27,6 @@ class PriceType extends AbstractType
 
     public function getName()
     {
-        return 'admin_planbundle_pricetype';
+        return 'starter_planbundle_pricetype';
     }
 }

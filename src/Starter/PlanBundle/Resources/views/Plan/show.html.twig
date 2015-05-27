@@ -4,9 +4,9 @@
 {% block mainbar -%}
   <div class="page-head">
     <div class="bread-crumb">
-      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+      <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a>
       <span class="divider">/</span>
-      <a href="{{ path('admin_plan') }}" class="bread-current">Plans</a>
+      <a href="{{ path('starter_plan') }}" class="bread-current">Plans</a>
     </div>
     <h2 class="pull-left">Show plan</h2>
     <div class="clearfix"></div>
@@ -36,8 +36,8 @@
         </table>
       </div>
       <div class="span12">
-        <a href="{{ path('admin_plan') }}" class="btn">Back</a>
-        <a href="{{ path('admin_plan_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
+        <a href="{{ path('starter_plan') }}" class="btn">Back</a>
+        <a href="{{ path('starter_plan_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
       </div>
     </div>
   </div>

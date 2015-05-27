@@ -21,7 +21,7 @@ class UserController extends Controller
     /**
      * Lists all User entities.
      *
-     * @Route("/", name="admin_user")
+     * @Route("/", name="starter_user")
      * @Method("GET")
      * @Template()
      */
@@ -39,7 +39,7 @@ class UserController extends Controller
     /**
      * Creates a new User entity.
      *
-     * @Route("/", name="admin_user_create")
+     * @Route("/", name="starter_user_create")
      * @Method("POST")
      * @Template("StarterUserBundle:User:new.html.twig")
      */
@@ -53,7 +53,7 @@ class UserController extends Controller
             $password = $form->get('password')->getData();
             
             if ($password) {
-                $encoder = $this->get('admin_user.encoder');
+                $encoder = $this->get('starter_user.encoder');
                 $passwordHash = $encoder->encodePassword($password, $entity->getSalt());
                 $entity->setPassword($passwordHash);
             }
@@ -73,7 +73,7 @@ class UserController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_user'));
+            return $this->redirect($this->generateUrl('starter_user'));
         }
 
         return array(
@@ -85,7 +85,7 @@ class UserController extends Controller
     /**
      * Displays a form to create a new User entity.
      *
-     * @Route("/new", name="admin_user_new")
+     * @Route("/new", name="starter_user_new")
      * @Method("GET")
      * @Template()
      */
@@ -103,7 +103,7 @@ class UserController extends Controller
     /**
      * Finds and displays a User entity.
      *
-     * @Route("/{id}", name="admin_user_show")
+     * @Route("/{id}", name="starter_user_show")
      * @Method("GET")
      * @Template()
      */
@@ -128,7 +128,7 @@ class UserController extends Controller
     /**
      * Displays a form to edit an existing User entity.
      *
-     * @Route("/{id}/edit", name="admin_user_edit")
+     * @Route("/{id}/edit", name="starter_user_edit")
      * @Method("GET")
      * @Template()
      */
@@ -155,7 +155,7 @@ class UserController extends Controller
     /**
      * Edits an existing User entity.
      *
-     * @Route("/{id}", name="admin_user_update")
+     * @Route("/{id}", name="starter_user_update")
      * @Method("PUT")
      * @Template("StarterUserBundle:User:edit.html.twig")
      */
@@ -178,7 +178,7 @@ class UserController extends Controller
         if ($editForm->isValid()) {
             $password = $editForm->get('password')->getData();
             if ($password) {
-                $encoder = $this->get('admin_user.encoder');
+                $encoder = $this->get('starter_user.encoder');
                 $passwordHash   = $encoder->encodePassword($password, $entity->getSalt());
                 $saltHash       = $entity->getSalt();
             }
@@ -188,7 +188,7 @@ class UserController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_user'));
+            return $this->redirect($this->generateUrl('starter_user'));
         }
 
         return array(
@@ -201,7 +201,7 @@ class UserController extends Controller
     /**
      * Deletes a User entity.
      *
-     * @Route("/{id}", name="admin_user_delete")
+     * @Route("/{id}", name="starter_user_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -235,7 +235,7 @@ class UserController extends Controller
             }
         }
 
-        return $this->redirect($this->generateUrl('admin_user'));
+        return $this->redirect($this->generateUrl('starter_user'));
     }
 
     /**

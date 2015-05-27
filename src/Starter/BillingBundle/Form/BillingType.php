@@ -27,6 +27,6 @@ class BillingType extends AbstractType
 
     public function getName()
     {
-        return 'admin_billingbundle_billingtype';
+        return 'starter_billingbundle_billingtype';
     }
 }

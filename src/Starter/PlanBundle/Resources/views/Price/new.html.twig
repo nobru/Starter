@@ -4,21 +4,21 @@
 {% block mainbar %}
   <div class="page-head">
     <div class="bread-crumb">
-      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a> 
+      <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a> 
       <span class="divider">/</span> 
-      <a href="{{ path('admin_plan') }}" class="bread-current">Plans</a>
+      <a href="{{ path('starter_plan') }}" class="bread-current">Plans</a>
       <span class="divider">/</span> 
-      <a href="{{ path('admin_plan_price') }}" class="bread-current">Prices</a>
+      <a href="{{ path('starter_plan_price') }}" class="bread-current">Prices</a>
     </div>
     <h2 class="pull-left">New price</h2>
     <div class="clearfix"></div>
   </div>
   <div class="container-fluid">
-    <form action="{{ path('admin_plan_price_create') }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('starter_plan_price_create') }}" method="post" {{ form_enctype(form) }}>
       {{ form_widget(form) }}
       <p>
         <button type="submit" class="btn btn-primary">Create</button>
-        <a href="{{ path('admin_plan_price') }}" class="btn">Back</a>
+        <a href="{{ path('starter_plan_price') }}" class="btn">Back</a>
       </p>
     </form>
   </div>

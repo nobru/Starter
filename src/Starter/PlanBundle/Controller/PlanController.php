@@ -20,7 +20,7 @@ class PlanController extends Controller
     /**
      * Lists all Plan entities.
      *
-     * @Route("/", name="admin_plan")
+     * @Route("/", name="starter_plan")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class PlanController extends Controller
     /**
      * Creates a new Plan entity.
      *
-     * @Route("/", name="admin_plan_create")
+     * @Route("/", name="starter_plan_create")
      * @Method("POST")
      * @Template("StarterPlanBundle:Plan:new.html.twig")
      */
@@ -53,7 +53,7 @@ class PlanController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_plan'));
+            return $this->redirect($this->generateUrl('starter_plan'));
         }
 
         return array(
@@ -65,7 +65,7 @@ class PlanController extends Controller
     /**
      * Displays a form to create a new Plan entity.
      *
-     * @Route("/new", name="admin_plan_new")
+     * @Route("/new", name="starter_plan_new")
      * @Method("GET")
      * @Template()
      */
@@ -83,7 +83,7 @@ class PlanController extends Controller
     /**
      * Finds and displays a Plan entity.
      *
-     * @Route("/{id}", name="admin_plan_show")
+     * @Route("/{id}", name="starter_plan_show")
      * @Method("GET")
      * @Template()
      */
@@ -108,7 +108,7 @@ class PlanController extends Controller
     /**
      * Displays a form to edit an existing Plan entity.
      *
-     * @Route("/{id}/edit", name="admin_plan_edit")
+     * @Route("/{id}/edit", name="starter_plan_edit")
      * @Method("GET")
      * @Template()
      */
@@ -135,7 +135,7 @@ class PlanController extends Controller
     /**
      * Edits an existing Plan entity.
      *
-     * @Route("/{id}", name="admin_plan_update")
+     * @Route("/{id}", name="starter_plan_update")
      * @Method("PUT")
      * @Template("StarterPlanBundle:Plan:edit.html.twig")
      */
@@ -157,7 +157,7 @@ class PlanController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_plan'));
+            return $this->redirect($this->generateUrl('starter_plan'));
         }
 
         return array(
@@ -170,7 +170,7 @@ class PlanController extends Controller
     /**
      * Deletes a Plan entity.
      *
-     * @Route("/{id}", name="admin_plan_delete")
+     * @Route("/{id}", name="starter_plan_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

@@ -20,7 +20,7 @@ class InvoiceController extends Controller
     /**
      * Lists all Invoice entities.
      *
-     * @Route("/", name="admin_billing_invoice")
+     * @Route("/", name="starter_billing_invoice")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class InvoiceController extends Controller
     /**
      * Creates a new Invoice entity.
      *
-     * @Route("/", name="admin_billing_invoice_create")
+     * @Route("/", name="starter_billing_invoice_create")
      * @Method("POST")
      * @Template("StarterBillingBundle:Invoice:new.html.twig")
      */
@@ -53,7 +53,7 @@ class InvoiceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_billing_invoice_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('starter_billing_invoice_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -65,7 +65,7 @@ class InvoiceController extends Controller
     /**
      * Displays a form to create a new Invoice entity.
      *
-     * @Route("/new", name="admin_billing_invoice_new")
+     * @Route("/new", name="starter_billing_invoice_new")
      * @Method("GET")
      * @Template()
      */
@@ -83,7 +83,7 @@ class InvoiceController extends Controller
     /**
      * Finds and displays a Invoice entity.
      *
-     * @Route("/{id}", name="admin_billing_invoice_show")
+     * @Route("/{id}", name="starter_billing_invoice_show")
      * @Method("GET")
      * @Template()
      */
@@ -108,7 +108,7 @@ class InvoiceController extends Controller
     /**
      * Displays a form to edit an existing Invoice entity.
      *
-     * @Route("/{id}/edit", name="admin_billing_invoice_edit")
+     * @Route("/{id}/edit", name="starter_billing_invoice_edit")
      * @Method("GET")
      * @Template()
      */
@@ -135,7 +135,7 @@ class InvoiceController extends Controller
     /**
      * Edits an existing Invoice entity.
      *
-     * @Route("/{id}", name="admin_billing_invoice_update")
+     * @Route("/{id}", name="starter_billing_invoice_update")
      * @Method("PUT")
      * @Template("StarterBillingBundle:Invoice:edit.html.twig")
      */
@@ -157,7 +157,7 @@ class InvoiceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_billing_invoice'));
+            return $this->redirect($this->generateUrl('starter_billing_invoice'));
         }
 
         return array(
@@ -170,7 +170,7 @@ class InvoiceController extends Controller
     /**
      * Deletes a Invoice entity.
      *
-     * @Route("/{id}", name="admin_billing_invoice_delete")
+     * @Route("/{id}", name="starter_billing_invoice_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -190,7 +190,7 @@ class InvoiceController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('admin_billing_invoice'));
+        return $this->redirect($this->generateUrl('starter_billing_invoice'));
     }
 
     /**

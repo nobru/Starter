@@ -4,9 +4,9 @@
 {% block mainbar %}
 <div class="page-head">
   <div class="bread-crumb">
-    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+    <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a>
     <span class="divider">/</span>
-    <a href="{{ path('admin_billing') }}">Billing</a>
+    <a href="{{ path('starter_billing') }}">Billing</a>
     <span class="divider">/</span>
     <span class="bread-current">Show billing</span>
   </div>
@@ -43,7 +43,7 @@
     </tbody>
   </table>
   <div class="button-group">
-    <a href="{{ path('admin_billing') }}" class="btn">Back</a>
-    <a href="{{ path('admin_billing_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
+    <a href="{{ path('starter_billing') }}" class="btn">Back</a>
+    <a href="{{ path('starter_billing_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
   </div>
 {% endblock %}

@@ -20,7 +20,7 @@ class PriceController extends Controller
     /**
      * Lists all Price entities.
      *
-     * @Route("/", name="admin_plan_price")
+     * @Route("/", name="starter_plan_price")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class PriceController extends Controller
     /**
      * Creates a new Price entity.
      *
-     * @Route("/", name="admin_plan_price_create")
+     * @Route("/", name="starter_plan_price_create")
      * @Method("POST")
      * @Template("StarterPlanBundle:Price:new.html.twig")
      */
@@ -56,7 +56,7 @@ class PriceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_plan_price'));
+            return $this->redirect($this->generateUrl('starter_plan_price'));
         }
 
         return array(
@@ -68,7 +68,7 @@ class PriceController extends Controller
     /**
      * Displays a form to create a new Price entity.
      *
-     * @Route("/new", name="admin_plan_price_new")
+     * @Route("/new", name="starter_plan_price_new")
      * @Method("GET")
      * @Template()
      */
@@ -86,7 +86,7 @@ class PriceController extends Controller
     /**
      * Displays a form to edit an existing Price entity.
      *
-     * @Route("/{id}/edit", name="admin_plan_price_edit")
+     * @Route("/{id}/edit", name="starter_plan_price_edit")
      * @Method("GET")
      * @Template()
      */
@@ -113,7 +113,7 @@ class PriceController extends Controller
     /**
      * Edits an existing Price entity.
      *
-     * @Route("/{id}", name="admin_plan_price_update")
+     * @Route("/{id}", name="starter_plan_price_update")
      * @Method("PUT")
      * @Template("StarterPlanBundle:Price:edit.html.twig")
      */
@@ -140,7 +140,7 @@ class PriceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_plan_price_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('starter_plan_price_edit', array('id' => $id)));
         }
 
         return array(
@@ -153,7 +153,7 @@ class PriceController extends Controller
     /**
      * Deletes a Price entity.
      *
-     * @Route("/{id}", name="admin_plan_price_delete")
+     * @Route("/{id}", name="starter_plan_price_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -175,7 +175,7 @@ class PriceController extends Controller
             var_dump($form->getErrors()); die;
         }
 
-        return $this->redirect($this->generateUrl('admin_plan_price'));
+        return $this->redirect($this->generateUrl('starter_plan_price'));
     }
 
     /**

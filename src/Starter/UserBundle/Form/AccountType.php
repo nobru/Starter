@@ -25,6 +25,6 @@ class AccountType extends AbstractType
 
     public function getName()
     {
-        return 'admin_userbundle_accounttype';
+        return 'starter_userbundle_accounttype';
     }
 }
