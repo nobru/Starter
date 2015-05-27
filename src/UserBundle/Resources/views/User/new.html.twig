@@ -1,0 +1,25 @@
+{% set current_page = 'user' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+  <div class="page-head">
+    <div class="bread-crumb">
+      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a> 
+      <span class="divider">/</span> 
+      <a href="{{ path('admin_user') }}">Users</a>
+      <span class="divider">/</span> 
+      <span class="bread-current">New user</span>
+    </div>
+    <h2 class="pull-left">New user</h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="container-fluid">
+    <form action="{{ path('admin_user_create') }}" method="post" {{ form_enctype(form) }}>
+      {{ form_widget(form) }}
+      <p>
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a href="{{ path('admin_user') }}" class="btn">Back</a>
+      </p>
+    </form>
+  </div>
+{% endblock %}

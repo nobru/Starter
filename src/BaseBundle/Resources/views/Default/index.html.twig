@@ -1,0 +1,16 @@
+{% extends 'StarterBaseBundle:Default:layout.html.twig' %}
+
+{% block body -%}
+
+{% include "StarterBaseBundle:Default:header.html.twig" %}
+
+<div class="content">
+    {% include "StarterBaseBundle:Default:sidebar.html.twig" %}
+    <div class="mainbar">
+        {% block mainbar %}{% endblock %}
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+{% endblock %}

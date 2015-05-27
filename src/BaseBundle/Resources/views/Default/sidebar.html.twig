@@ -1,0 +1,82 @@
+{% if current_page is not defined %}{% set current_page = '' %}{% endif %}
+  <div class="sidebar">
+      <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+      <div class="sidebar-inner">
+        <div class="sidebar-widget">
+          <form class="form-inline">
+            <div class="input-append row-fluid">
+              <input class="span8" placeholder="Search" type="text">
+              <button type="submit" class="btn btn-info">Search</button>
+            </div>
+          </form>
+        </div>
+        <ul class="navi">
+          <li class="has_submenu nred{% if current_page == 'dashboard' %} current{% endif %}">
+            <a href="{{ path('admin_dashboard') }}"><i class="icon-desktop"></i> Dashboard</a>
+          </li>
+          <li class="has_submenu ngreen{% if current_page == 'billing' %}  current{% endif %}">
+            <a href="#">
+              <i class="icon-money"></i> Billing
+              <span class="pull-right"><i class="icon-angle-right"></i></span>
+            </a>
+            <ul>
+              <li><a href="{{ path('admin_billing') }}">Billing</a></li>
+              <li><a href="{{ path('admin_billing_invoice') }}">Invoices</a></li>
+            </ul>
+          </li>
+          <li class="has_submenu norange{% if current_page == 'plan' %} current{% endif %}">
+            <a href="#">
+              <i class="icon-table"></i> Plans
+              <span class="pull-right"><i class="icon-angle-right"></i></span>
+            </a>
+            <ul>
+              <li><a href="{{ path('admin_plan') }}">Plans</a></li>
+              <li><a href="{{ path('admin_plan_price') }}">Prices</a></li>
+              <li><a href="{{ path('admin_plan_period') }}">Periods</a></li>
+            </ul>
+          </li>
+          <li class="has_submenu nlightblue{% if current_page == 'user' %} current{% endif %}">
+            <a href="#">
+              <i class="icon-user"></i> Accounts
+              <span class="pull-right"><i class="icon-angle-right"></i></span>
+            </a>
+
+            <ul>
+              <li><a href="{{ path('admin_account') }}">Accounts</a></li>
+              <li><a href="{{ path('admin_user') }}">Users</a></li>
+            </ul>
+          </li>
+
+<!--           <li class="has_submenu nviolet{% if current_page == 'marketing' %} current{% endif %}">
+            <a href="#">
+              <i class="icon-file-alt"></i> Marketing
+              <span class="pull-right"><i class="icon-angle-right"></i></span>
+            </a>
+
+            <ul>
+              <li><a href="#marketing-email">E-mail marketing</a></li>
+              <li><a href="#marketing-adwords">Google Adwords</a></li>
+              <li><a href="#marketing-facebook">Facebook</a></li>
+              <li><a href="#marketing-twitter">Twitter</a></li>
+            </ul>
+          </li>
+ -->
+          <li class="has_submenu nviolet{% if current_page == 'settings' %} current{% endif %}">
+            <a href="#">
+              <i class="icon-cogs"></i> Settings
+              <span class="pull-right"><i class="icon-angle-right"></i></span>
+            </a>
+
+            <ul>
+              <li><a href="{{ path('admin_settings_upload') }}">Upload</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="sidebar-widget">
+          
+        </div>
+
+      </div>
+
+  </div>

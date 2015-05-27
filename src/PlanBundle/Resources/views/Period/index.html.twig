@@ -1,0 +1,54 @@
+{% set current_page = 'plan' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+  <div class="page-head">
+    <div class="bread-crumb">
+      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a> 
+      <span class="divider">/</span> 
+      <a href="{{ path('admin_plan') }}" class="bread-current">Plans</a>
+      <span class="divider">/</span> 
+      <a href="{{ path('admin_plan_period') }}" class="bread-current">Periods</a>
+    </div>
+    <h2 class="pull-left">Periods</h2>
+    <div class="pull-right">
+      <a href="{{ path('admin_plan_period_new') }}" class="btn btn-primary">Create a new period</a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="container-fluid">
+    {% if entities %}
+    <div class="row-fluid">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Qtd</th>
+            <th>Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+          <tr>
+            <td><a href="{{ path('admin_plan_period_edit', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.qtd }}</td>
+            <td>{% if entity.type == "D" %}Day{% endif %}{% if entity.type == "M" %}Month{% endif %}{% if entity.type == "Y" %}Year{% endif %}</td>
+            <td>
+              <a href="{{ path('admin_plan_period_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div style="text-align:center">
+      <h3>No period yet created</h3>
+      <a href="{{ path('admin_plan_period_new') }}">Create a new period</a>
+    </div>
+    {% endif %}
+
+  {% endblock %}

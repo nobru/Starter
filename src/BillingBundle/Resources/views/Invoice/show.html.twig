@@ -1,0 +1,59 @@
+{% set current_page = 'billing' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+<div class="page-head">
+  <div class="bread-crumb">
+    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+    <span class="divider">/</span>
+    <a href="{{ path('admin_billing') }}">Billling</a>
+    <span class="divider">/</span>
+    <a href="{{ path('admin_billing_invoice') }}">Invoices</a>
+    <span class="divider">/</span>
+    <span class="bread-current">Show invoice</span>
+  </div>
+  <h2 class="pull-left">Show invoice</h2>
+  <div class="clearfix"></div>
+</div>
+<div class="container-fluid">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>{{ entity.description }}</td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td>{{ entity.price }}</td>
+      </tr>
+      <tr>
+        <th>Billing</th>
+        <td>
+          <a href="{{ path('admin_billing_edit', {'id' : entity.billing.id}) }}">
+            <strong>ID:</strong> {{ entity.billing.id }}, 
+            <strong>Account:</strong> {{ entity.billing.account.owner.name }},
+            <strong>Start at:</strong> {{ entity.billing.createdat|date('Y-m-d') }}
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>Pay date</th>
+        <td>{{ entity.payDate|date('Y-m-d') }}</td>
+      </tr>
+      <tr>
+        <th>Paid at</th>
+        <td>{{ entity.paidAt|date('Y-m-d') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="span12">
+  <a href="{{ path('admin_billing_invoice') }}" class="btn">Back</a>
+  <a href="{{ path('admin_billing_invoice_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
+</div>
+{% endblock %}
+

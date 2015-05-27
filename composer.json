@@ -1,0 +1,22 @@
+{
+    "name": "nobru/starter",
+    "type": "library",
+    "description": "Simple SaaS administration for Symfony2",
+    "homepage": "http://starter.nobru.com.br",
+    "authors": [
+        {
+            "name": "Bruno Bacus",
+            "email": "brunobacus@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "doctrine/common": "~2.2",
+        "twig/twig": ">=1.9.1,<2.0-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Starter": "src/"
+        }
+    }
+}

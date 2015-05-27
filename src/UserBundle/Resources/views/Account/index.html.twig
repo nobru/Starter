@@ -1,0 +1,48 @@
+{% set current_page = 'user' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+<div class="page-head">
+  <div class="bread-crumb">
+    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a> 
+    <span class="divider">/</span> 
+      <a href="{{ path('admin_account') }}" class="bread-current">Accounts</a>
+  </div>
+  <h2 class="pull-left">Accounts</h2>
+  <div class="pull-right">
+    <a href="{{ path('admin_account_new') }}" class="btn btn-primary">Create a new account</a>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="container-fluid">
+  {% if entities %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Owner</th>
+                <th>Start</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_account_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.owner %}{{ entity.owner.username }}{% endif %}</td>
+                <td>{% if entity.start %}{{ entity.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.isActive %}<span class="label label-success">active</span>{% else %}<span class="label label-danger">inactive</span>{% endif %}</td>
+                <td>
+                  <a href="{{ path('admin_account_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
+                  <a href="{{ path('admin_account_show', { 'id': entity.id }) }}" class="btn btn-mini">show</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+  {% else %}
+  <h3>No account yet created</h3>
+  {% endif %}
+</div>
+{% endblock %}

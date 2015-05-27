@@ -1,0 +1,52 @@
+{% set current_page = 'plan' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+<div class="page-head">
+  <div class="bread-crumb">
+    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a> 
+    <span class="divider">/</span> 
+    <a href="{{ path('admin_plan') }}" class="bread-current">Plans</a>
+      <span class="divider">/</span> 
+      <a href="{{ path('admin_plan_price') }}" class="bread-current">Prices</a>
+  </div>
+  <h2 class="pull-left">Prices</h2>
+  <div class="pull-right">
+    <a href="{{ path('admin_plan_price_new') }}" class="btn btn-primary">Create a new price</a>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="container-fluid">
+  {% if entities %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Plan</th>
+        <th>Period</th>
+        <th>Price</th>
+        <th width="200">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+      <tr>
+        <td><a href="{{ path('admin_plan_price_edit', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+        <td>{{ entity.plan.name }} {% if entity.isDefault %}<span class="label">default</span>{% endif %}</td>
+        <td>{{ entity.period.name }}</td>
+        <td>{{ entity.price }}</td>
+        <td>
+          <a href="{{ path('admin_plan_price_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div style="text-align:center">
+      <h3>No price yet created</h3>
+      <a href="{{ path('admin_plan_price_new') }}" class="btn btn-primary">Create a new price</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

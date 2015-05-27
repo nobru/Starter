@@ -1,0 +1,7 @@
+# User
+Starter\UserBundle\Entity\User:
+    properties:
+        username:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~

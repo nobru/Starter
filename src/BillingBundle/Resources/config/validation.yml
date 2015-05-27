@@ -1,0 +1,11 @@
+# Invoice
+Starter\BillingBundle\Entity\Invoice:
+    properties:
+        description:
+            - NotBlank: ~
+        price:
+            - NotBlank: ~
+        status:
+            - NotBlank: ~
+        billing:
+            - NotBlank: ~

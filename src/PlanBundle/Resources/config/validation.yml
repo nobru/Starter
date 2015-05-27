@@ -1,0 +1,25 @@
+# Plan
+Starter\PlanBundle\Entity\Plan:
+    properties:
+        name:
+            - NotBlank: ~
+
+# Price
+Starter\PlanBundle\Entity\Price:
+    properties:
+        plan:
+            - NotBlank: ~
+        period:
+            - NotBlank: ~
+        price:
+            - NotBlank: ~
+
+# Period
+Starter\PlanBundle\Entity\Period:
+    properties:
+        name:
+            - NotBlank: ~
+        qtd:
+            - NotBlank: ~
+        type:
+            - NotBlank: ~

@@ -1,0 +1,44 @@
+{% set current_page = 'plan' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar -%}
+  <div class="page-head">
+    <div class="bread-crumb">
+      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+      <span class="divider">/</span>
+      <a href="{{ path('admin_plan') }}" class="bread-current">Plans</a>
+    </div>
+    <h2 class="pull-left">Show plan</h2>
+    <div class="clearfix"></div>
+    </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>Id</th>
+              <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+              <th>Prices</th>
+              <td>
+                {% for price in entity.prices %}
+                <strong>{{ price.period.name }}</strong>: {{ price.price }}<br/>
+                {% endfor %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="span12">
+        <a href="{{ path('admin_plan') }}" class="btn">Back</a>
+        <a href="{{ path('admin_plan_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

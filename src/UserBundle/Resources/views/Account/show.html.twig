@@ -1,0 +1,54 @@
+{% set current_page = 'user' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar -%}
+  <div class="page-head">
+  <div class="bread-crumb">
+    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+    <span class="divider">/</span>
+    <a href="{{ path('admin_account') }}" class="bread-current">Accounts</a>
+  </div>
+  <h2 class="pull-left">Show account</h2>
+  <div class="clearfix"></div>
+  </div>
+  <div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+    <table class="table table-bordered">
+      <tbody>
+      <tr>
+        <th>Id</th>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <th>Owner</th>
+        <td>{% if entity.owner %}{{ entity.owner.username }}{% endif %}</td>
+      </tr>
+      <tr>
+        <th>Start at</th>
+        <td>{{ entity.start|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <th>Active?</th>
+        <td>{% if entity.isActive %}<span class="label label-success">active</span>{% else %}<span class="label label-danger">inactive</span>{% endif %}</td>
+      </tr>
+      <tr>
+        <th>Users</th>
+        <td>
+        {% for user in entity.users %}
+        {% if user == entity.owner %}
+        <strong>(owner)</strong>
+        {% endif %} {{ user.username }}<br/>
+        {% endfor %}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="span12">
+    <a href="{{ path('admin_account') }}" class="btn">Back</a>
+    <a href="{{ path('admin_account_edit', { 'id': entity.id }) }}" class="btn btn-warning">Edit</a>
+    </div>
+  </div>
+  </div>
+{% endblock %}

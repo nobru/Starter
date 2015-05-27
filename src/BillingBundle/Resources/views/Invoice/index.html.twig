@@ -1,0 +1,53 @@
+{% set current_page = 'billing' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+<div class="page-head">
+  <div class="bread-crumb">
+    <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+    <span class="divider">/</span>
+    <a href="{{ path('admin_billing') }}" class="bread-current">Billing</a>
+    <span class="divider">/</span>
+    <span class="bread-current">Invoices</span>
+  </div>
+  <h2 class="pull-left">Invoices</h2>
+  <div class="pull-right">
+    <a href="{{ path('admin_billing_invoice_new') }}" class="btn btn-primary">Create a new invoice</a>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="container-fluid">
+  {% if entities %}
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Pay date</th>
+        <th>Paid at</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+      <tr>
+        <td><a href="{{ path('admin_billing_invoice_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+        <td>{{ entity.description }}</td>
+        <td>{{ entity.price }}</td>
+        <td>{% if entity.payDate %}{{ entity.payDate|date('Y-m-d') }}{% endif %}</td>
+        <td>{% if entity.paidAt %}{{ entity.paidAt|date('Y-m-d') }}{% endif %}</td>
+        <td>
+          <a href="{{ path('admin_billing_invoice_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
+          <a href="{{ path('admin_billing_invoice_show', { 'id': entity.id }) }}" class="btn btn-mini">show</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div style="text-align:center">
+    <h3>No invoices yet created.</h3>
+  </div>
+  {% endif %}
+{% endblock %}

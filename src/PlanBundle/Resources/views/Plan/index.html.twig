@@ -1,0 +1,53 @@
+{% set current_page = 'plan' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+  <div class="page-head">
+    <div class="bread-crumb">
+      <a href="{{ path('admin_dashboard') }}"><i class="icon-home"></i> Home</a>
+      <span class="divider">/</span>
+      <a href="#" class="bread-current">Plans</a>
+    </div>
+    <h2 class="pull-left">Plans</h2>
+    <div class="pull-right">
+      <a href="{{ path('admin_plan_new') }}" class="btn btn-primary">Create a new plan</a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="container-fluid">
+    {% if entities %}
+    <div class="row-fluid">
+      <div class="span12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Active</th>
+              <th width="200">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for entity in entities %}
+            <tr>
+              <td><a href="{{ path('admin_plan_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+              <td>{{ entity.name }}</td>
+              <td>{% if entity.isActive %}<span class="label label-success">active</span>{% else %}<span class="label label-danger">inactive</span>{% endif %}</td>
+              <td>
+                <a class="btn btn-mini btn-warning" href="{{ path('admin_plan_edit', { 'id': entity.id }) }}">edit</a>
+                <a class="btn btn-mini" href="{{ path('admin_plan_show', { 'id': entity.id }) }}">show</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% else %}
+    <div style="text-align:center">
+      <h3>No plan yet created</h3>
+      <a href="{{ path('admin_plan_new') }}" class="btn btn-primary">Create a new plan</a>
+    </div>
+    {% endif %}
+  </div>
+  {% endblock %}
