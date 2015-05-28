@@ -13,7 +13,7 @@ use Starter\UserBundle\Form\AccountType;
 /**
  * Account controller.
  *
- * @Route("/admin/account")
+ * @Route("/account")
  */
 class AccountController extends Controller
 {

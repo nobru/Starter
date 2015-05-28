@@ -1,0 +1,19 @@
+dashboard:
+    resource: "@StarterDashboardBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+billing:
+    resource: "@StarterBillingBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+plan:
+    resource: "@StarterPlanBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+user:
+    resource: "@StarterUserBundle/Controller/"
+    type:     annotation
+    prefix:   /

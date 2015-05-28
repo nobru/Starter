@@ -1,0 +1,4 @@
+starter_plan:
+    resource: "@StarterPlanBundle/Controller/"
+    type:     annotation
+    prefix:   /plan

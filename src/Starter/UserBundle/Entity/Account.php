@@ -45,10 +45,6 @@ class Account
      **/
     private $users;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\EmpregadosBundle\Entity\Empregado", mappedBy="account")
-     **/
-    private $empregados;
 
     /**
      * Constructor
@@ -56,7 +52,6 @@ class Account
     public function __construct()
     {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->empregados = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     public function __toString()
@@ -174,38 +169,5 @@ class Account
     public function getUsers()
     {
         return $this->users;
-    }
-
-    /**
-     * Add empregados
-     *
-     * @param \App\EmpregadosBundle\Entity\Empregado $empregados
-     * @return Account
-     */
-    public function addEmpregado(\App\EmpregadosBundle\Entity\Empregado $empregados)
-    {
-        $this->empregados[] = $empregados;
-    
-        return $this;
-    }
-
-    /**
-     * Remove empregados
-     *
-     * @param \App\EmpregadosBundle\Entity\Empregado $empregados
-     */
-    public function removeEmpregado(\App\EmpregadosBundle\Entity\Empregado $empregados)
-    {
-        $this->empregados->removeElement($empregados);
-    }
-
-    /**
-     * Get empregados
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEmpregados()
-    {
-        return $this->empregados;
     }
 }

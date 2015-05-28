@@ -13,7 +13,7 @@ use Starter\PlanBundle\Form\PeriodType;
 /**
  * Period controller.
  *
- * @Route("/plan/period")
+ * @Route("/period")
  */
 class PeriodController extends Controller
 {

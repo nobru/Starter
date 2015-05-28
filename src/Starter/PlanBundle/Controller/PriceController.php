@@ -13,7 +13,7 @@ use Starter\PlanBundle\Form\PriceType;
 /**
  * Price controller.
  *
- * @Route("/plan/price")
+ * @Route("/price")
  */
 class PriceController extends Controller
 {
