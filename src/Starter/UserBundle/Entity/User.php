@@ -110,7 +110,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function getRoles()
     {
-        return $this->roles;
+        return $this->roles->toArray();
     }
 
     /**
@@ -152,7 +152,7 @@ class User implements AdvancedUserInterface, \Serializable
 
     public function isAccountNonLocked()
     {
-        return (!$this->getAccount() || $this->getAccount()->getIsActive());
+        return true;
     }
 
     public function isCredentialsNonExpired()

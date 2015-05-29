@@ -206,22 +206,25 @@ class UserController extends Controller
                 throw $this->createNotFoundException('Unable to find User entity.');
             }
 
-            $account = $entity->getAccount();
-            $wasOwner = false;
-            if ($account->getOwner()->getId() == $id) {
-                $countUsers = count($account->getUsers());
-                $account->setOwner(null);
-                $em->persist($account);
-                $em->flush();
-                $wasOwner = true;
+            $accounts = $entity->getAccounts();
+            foreach ($accounts as $ccount) {
+                $wasOwner = false;
+                if ($account->getOwner()->getId() == $id) {
+                    $countUsers = count($account->getUsers());
+                    $account->setOwner(null);
+                    $em->persist($account);
+                    $em->flush();
+                    $wasOwner = true;
+                }
+
+                if ($wasOwner == 1 && $countUsers == 1) {
+                    $em->remove($account);
+                    $em->flush();
+                }
             }
+
             $em->remove($entity);
             $em->flush();
-
-            if ($wasOwner == 1 && $countUsers == 1) {
-                $em->remove($account);
-                $em->flush();
-            }
         }
 
         return $this->redirect($this->generateUrl('starter_user'));
