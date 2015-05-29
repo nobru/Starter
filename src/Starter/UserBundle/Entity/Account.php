@@ -22,6 +22,11 @@ class Account
     private $id;
 
     /**
+     * @ORM\Column(name="name", type="string", length=30)
+     */
+    private $name;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="start", type="datetime")
@@ -41,7 +46,7 @@ class Account
     private $owner;
 
     /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="account")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="accounts")
      **/
     private $users;
 
@@ -56,7 +61,7 @@ class Account
     
     public function __toString()
     {
-        return (string)$this->id;
+        return (string)$this->name;
     }
 
     /**
@@ -169,5 +174,28 @@ class Account
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Account
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

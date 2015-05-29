@@ -1,0 +1,3 @@
+imports:
+    - { resource: @StarterUserBundle/Resources/config/services.xml }
+    - { resource: @StarterBillingBundle/Resources/config/services.xml }
