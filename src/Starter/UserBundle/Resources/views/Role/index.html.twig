@@ -1,0 +1,48 @@
+{% set current_page = 'user' %}
+{% extends 'StarterBaseBundle:Default:index.html.twig' %}
+
+{% block mainbar %}
+<div class="page-head">
+  <div class="bread-crumb">
+  <a href="{{ path('starter_dashboard') }}"><i class="icon-home"></i> Home</a> 
+  <span class="divider">/</span> 
+    <a href="{{ path('starter_account') }}" class="bread-current">Roles</a>
+  </div>
+  <h2 class="pull-left">Roles</h2>
+  <div class="pull-right">
+  <a href="{{ path('starter_role_new') }}" class="btn btn-primary">Create a new role</a>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="container-fluid">
+  {% if entities %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+      <tr>
+        <td><a href="{{ path('starter_role_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+        <td>{{ entity.name }}</td>
+        <td>{{ entity.role }}</td>
+        <td>
+        <ul>
+          <a href="{{ path('starter_role_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
+          <a href="{{ path('starter_role_show', { 'id': entity.id }) }}" class="btn btn-mini">show</a>
+
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3>No roles yet created</h3>
+  {% endif %}
+</div>
+{% endblock %}
