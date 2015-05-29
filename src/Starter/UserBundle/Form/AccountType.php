@@ -11,6 +11,7 @@ class AccountType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('name')
             ->add('owner')
             ->add('isActive', 'checkbox', array('label' => 'Active?'))
         ;

@@ -62,17 +62,6 @@ class UserController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $account = new Account;
-            $account->setStart(new \DateTime());
-            $account->setIsActive('0');
-            $account->setOwner($entity);
-            $em->persist($account);
-            $em->flush();
-
-            $entity->setAccount($account);
-            $em->persist($entity);
-            $em->flush();
-
             return $this->redirect($this->generateUrl('starter_user'));
         }
 

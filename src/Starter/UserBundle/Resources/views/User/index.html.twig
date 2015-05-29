@@ -22,7 +22,6 @@
         <th>Id</th>
         <th>Name</th>
         <th>Username</th>
-        <th>Account</th>
         <th>Is active?</th>
         <th>Actions</th>
       </tr>
@@ -33,7 +32,6 @@
         <td><a href="{{ path('starter_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
         <td>{{ entity.name }}</td>
         <td>{{ entity.username }}</td>
-        <td>{% if entity.account and entity.account.id %}<a href="{{ path('starter_account_show', {'id' : entity.account.id}) }}">{{ entity.account.id }}</a>{% else %}<i>No account</i>{% endif %}</td>
         <td>{% if entity.isActive %}<span class="label label-success">active</span>{% else %}<span class="label label-danger">inactive</span>{% endif %}</td>
         <td>
           <a href="{{ path('starter_user_edit', { 'id': entity.id }) }}" class="btn btn-mini btn-warning">edit</a>
@@ -44,7 +42,7 @@
     </tbody>
   </table>
   {% else %}
-  <h3>No account yet created</h3>
+  <h3>No user yet created</h3>
   {% endif %}
 </div>
 {% endblock %}

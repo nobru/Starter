@@ -59,10 +59,9 @@ class User implements AdvancedUserInterface, \Serializable
     private $roles;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Account", inversedBy="users")
-     * @ORM\JoinColumn(name="account", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="Account", inversedBy="users")
      **/
-    private $account;
+    private $accounts;
 
 
     public function __construct()
@@ -111,7 +110,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function getRoles()
     {
-        return $this->roles->toArray();
+        return $this->roles;
     }
 
     /**
@@ -164,11 +163,6 @@ class User implements AdvancedUserInterface, \Serializable
     public function isEnabled()
     {
         return $this->isActive;
-    }
-
-    public function getAccount()
-    {
-        return $this->account;
     }
 
     /**
@@ -313,5 +307,38 @@ class User implements AdvancedUserInterface, \Serializable
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Add accounts
+     *
+     * @param \Starter\UserBundle\Entity\Account $accounts
+     * @return User
+     */
+    public function addAccount(\Starter\UserBundle\Entity\Account $accounts)
+    {
+        $this->accounts[] = $accounts;
+    
+        return $this;
+    }
+
+    /**
+     * Remove accounts
+     *
+     * @param \Starter\UserBundle\Entity\Account $accounts
+     */
+    public function removeAccount(\Starter\UserBundle\Entity\Account $accounts)
+    {
+        $this->accounts->removeElement($accounts);
+    }
+
+    /**
+     * Get accounts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAccounts()
+    {
+        return $this->accounts;
     }
 }

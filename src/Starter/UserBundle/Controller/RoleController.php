@@ -46,7 +46,7 @@ class RoleController extends Controller
     {
         $entity = new Role();
         $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+        $form->bindRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -178,7 +178,7 @@ class RoleController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
+        $editForm->bindRequest($request);
 
         if ($editForm->isValid()) {
             $em->flush();
@@ -201,7 +201,7 @@ class RoleController extends Controller
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+        $form->bindRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -228,9 +228,6 @@ class RoleController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('starter_role_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
