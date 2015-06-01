@@ -20,6 +20,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Name</th>
                 <th>Owner</th>
                 <th>Start</th>
                 <th>Active</th>
@@ -30,6 +31,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('starter_account_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.owner %}{{ entity.name }}{% endif %}</td>
                 <td>{% if entity.owner %}{{ entity.owner.username }}{% endif %}</td>
                 <td>{% if entity.start %}{{ entity.start|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.isActive %}<span class="label label-success">active</span>{% else %}<span class="label label-danger">inactive</span>{% endif %}</td>
