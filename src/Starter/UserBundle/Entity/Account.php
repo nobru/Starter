@@ -27,6 +27,11 @@ class Account
     private $name;
 
     /**
+     * @ORM\Column(name="title", type="string", length=100)
+     */
+    private $title;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="start", type="datetime")
@@ -197,5 +202,28 @@ class Account
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Account
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 }

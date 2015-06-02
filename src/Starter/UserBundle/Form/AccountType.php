@@ -12,6 +12,7 @@ class AccountType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('title')
             ->add('owner')
             ->add('isActive', 'checkbox', array('label' => 'Active?'))
         ;
