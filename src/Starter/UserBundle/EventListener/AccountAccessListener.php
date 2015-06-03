@@ -30,12 +30,23 @@ class AccountAccessListener
             $accounts = $controller[0]->getUser()->getAccounts();
             $hasAccount = false;
             foreach ($accounts as $account) {
-                if ($account->getName() == $accountName)
+                if ($account->getName() == $accountName) {
                     $hasAccount = true;
+                    break;
+                }
             }
 
             if (!$hasAccount) {
                 throw new AccessDeniedHttpException('Access denied.');
+            }
+
+            $event->getRequest()->attributes->set('accountTitle', $account->getTitle());
+
+            $router = $controller[0]->get('router');
+            $routeCollection = $router->getRouteCollection();
+
+            foreach ($routeCollection as $route) {
+                $route->setDefault('accountName', $accountName);
             }
         }
     }
