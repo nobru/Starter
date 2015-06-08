@@ -341,4 +341,11 @@ class User implements AdvancedUserInterface, \Serializable
     {
         return $this->accounts;
     }
+
+    public function getDefaultAccount()
+    {
+        foreach ($this->accounts as $account) {
+            return $account;
+        }
+    }
 }
