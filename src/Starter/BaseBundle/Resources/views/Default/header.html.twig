@@ -6,18 +6,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a href="{{ path('starter_dashboard') }}" class="brand">Starter</span>
+      <a href="{{ path('starter_dashboard') }}" class="brand">{{  }}</span>
       </a>
       <div class="nav-collapse collapse">
         <ul class="nav pull-right">
           <li class="dropdown pull-right">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              Starter <b class="caret"></b>
+              {{ app.user.name }} <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+<!--               <li><a href="#"><i class="icon-user"></i> Profile</a></li>
               <li><a href="#"><i class="icon-cogs"></i> Settings</a></li>
-              <li><a href="#"><i class="icon-off"></i> Logout</a></li>
+ -->              <li><a href="{{ path('logout') }}"><i class="icon-off"></i> Logout</a></li>
             </ul>
           </li>
         </ul>
