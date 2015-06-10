@@ -48,6 +48,11 @@ class User implements AdvancedUserInterface, \Serializable
     private $email;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $changepassword;
+
+    /**
      * @ORM\Column(name="is_active", type="boolean", nullable=true)
      */
     private $isActive;
@@ -347,5 +352,28 @@ class User implements AdvancedUserInterface, \Serializable
         foreach ($this->accounts as $account) {
             return $account;
         }
+    }
+
+    /**
+     * Set changepassword
+     *
+     * @param boolean $changepassword
+     * @return User
+     */
+    public function setChangepassword($changepassword)
+    {
+        $this->changepassword = $changepassword;
+
+        return $this;
+    }
+
+    /**
+     * Get changepassword
+     *
+     * @return boolean 
+     */
+    public function getChangepassword()
+    {
+        return $this->changepassword;
     }
 }

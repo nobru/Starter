@@ -15,6 +15,7 @@ class UserType extends AbstractType
             ->add('name')
             ->add('password', 'password')
             ->add('email')
+            ->add('changepassword')
             ->add('isActive')
             ->add('roles')
             ->add('accounts')

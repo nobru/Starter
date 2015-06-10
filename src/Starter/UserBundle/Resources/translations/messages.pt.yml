@@ -1,0 +1,4 @@
+#Starter\UserBundle\Resources\translations\messages.pt.yml
+The presented password cannot be empty.: A senha não pode estar em branco.
+The presented password is invalid.: Senha inválida.
+Bad credentials.: Usuário ou senha inválidos.
