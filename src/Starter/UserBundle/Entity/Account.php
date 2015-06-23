@@ -46,7 +46,7 @@ class Account
     private $isActive;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      */
     private $owner;
 
