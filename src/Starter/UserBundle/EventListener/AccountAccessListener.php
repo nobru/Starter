@@ -5,11 +5,15 @@ namespace Starter\UserBundle\EventListener;
 use Starter\UserBundle\Controller\AccountAccessInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Doctrine\Common\Persistence\ObjectManager;
 
 class AccountAccessListener
 {
-    public function __construct()
+    private $entityManager;
+
+    public function __construct(ObjectManager $entityManager)
     {
+        $this->entityManager = $entityManager;
     }
 
     public function onKernelController(FilterControllerEvent $event)
@@ -39,6 +43,9 @@ class AccountAccessListener
             if (!$hasAccount) {
                 throw new AccessDeniedHttpException('Access denied.');
             }
+
+            $filter = $this->entityManager->getFilters()->enable('account_check_filter');
+            $filter->setParameter('account', $account->getId());
 
             $event->getRequest()->attributes->set('accountTitle', $account->getTitle());
 
