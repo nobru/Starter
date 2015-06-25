@@ -74,6 +74,7 @@ class User implements AdvancedUserInterface, \Serializable
         $this->isActive = true;
         $this->salt = md5(uniqid(null, true));
         $this->roles = new ArrayCollection();
+        $this->accounts = new ArrayCollection();
     }
 
     public function __toString()
@@ -116,6 +117,11 @@ class User implements AdvancedUserInterface, \Serializable
     public function getRoles()
     {
         return $this->roles->toArray();
+    }
+
+    public function getRolesCollection()
+    {
+        return $this->roles;
     }
 
     /**
