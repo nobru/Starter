@@ -177,13 +177,14 @@ class RoleController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
+        $editForm = $this->createForm(new RoleType(), $entity);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('starter_role_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('starter_role'));
         }
 
         return array(
