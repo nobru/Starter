@@ -46,6 +46,11 @@ class Account
     private $isActive;
 
     /**
+     * @ORM\Column(name="id_employer", type="integer", nullable=true)
+     */
+    private $idEmployer;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User")
      */
     private $owner;
@@ -225,5 +230,17 @@ class Account
     public function getTitle()
     {
         return $this->title;
+    }
+
+    public function setIdEmployer($idEmployer)
+    {
+        $this->idEmployer = $idEmployer;
+
+        return $this;
+    }
+
+    public function getIdEmployer()
+    {
+        return $this->idEmployer;
     }
 }
