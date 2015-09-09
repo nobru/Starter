@@ -1,0 +1,60 @@
+{% extends 'StarterBaseBundle:Default:layout.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/login.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#modal-login').modal('show');  
+})
+</script>
+
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="modal hide fade" id="modal-login" data-backdrop="static" data-keyboard="false">
+      <form action="{{ path('login_check') }}" method="post" class="form-horizontal">
+      <div class="modal-header">
+        <h3>{{ 'Starter'|trans }}</h3>
+      </div>
+      <div class="modal-body">
+          <legend>{{ 'Sign in'|trans }}</legend>
+
+          {% include 'StarterBaseBundle:Default:messages.html.twig' %}
+
+          <div class="control-group">
+            <label class="control-label" for="username">{{ 'User'|trans }}</label>
+            <div class="controls">
+              <input type="text" id="username" name="_username" placeholder="{{ 'User'|trans }}">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="password">{{ 'Password'|trans }}</label>
+            <div class="controls">
+              <input type="password" id="password" name="_password" placeholder="{{ 'Password'|trans }}">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" id="remember_me" name="_remember_me"> {{ 'Stay signed in'|trans }}
+              </label>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">{{ 'Sign in'|trans }}</button>
+      </div>
+      </form>
+    </div>
+
+{% endblock %}
