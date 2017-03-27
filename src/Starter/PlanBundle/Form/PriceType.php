@@ -14,7 +14,14 @@ class PriceType extends AbstractType
             ->add('price')
             ->add('plan')
             ->add('period')
-            ->add('is_default', 'checkbox', array('label' => 'Default price?'))
+            ->add(
+                'is_default',
+                'choice',
+                [
+                    'label' => 'Default price?',
+                    'choices' => ['0' => 'No', '1' => 'Yes']
+                ]
+            )
         ;
     }
 

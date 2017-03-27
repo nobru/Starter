@@ -17,6 +17,14 @@ form *{
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
+div.modal form {
+    margin: 0 !important;
+}
+
+table.table tr td:last-child {
+    white-space: nowrap !important;
+}
+
 input, textarea{
 	background-image: none !important;
 	border: 1px solid #ccc !important;

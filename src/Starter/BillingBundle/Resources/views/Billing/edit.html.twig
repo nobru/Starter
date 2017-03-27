@@ -23,11 +23,13 @@
           <a href="{{ path('starter_user') }}" class="btn">Back</a>
         </div>
     </form>
+</div>
+
 {% set modal_title  = 'Delete billing' %}
 {% set modal_action = path('starter_billing_delete', {'id' : entity.id}) %}
 {% set modal_text   = 'Do you really want to delete the billing?' %}
 {% set entity_id    = entity.id %}
         {% include('StarterBaseBundle:Default:modal_delete.html.twig') %}
-</div>
+
 
 {% endblock %}

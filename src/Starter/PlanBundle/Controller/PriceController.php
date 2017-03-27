@@ -51,7 +51,11 @@ class PriceController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            print $entity->getIsDefault(); die;
+            if($entity->getIsDefault()) {
+                $dql = 'UPDATE StarterPlanBundle:Price p SET p.isDefault = 0 WHERE p.isDefault = 1';
+                $updateQuery = $em->createQuery($dql);
+                $updateQuery->execute();
+            }
 
             $em->persist($entity);
             $em->flush();

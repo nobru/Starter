@@ -17,3 +17,17 @@ user:
     resource: "@StarterUserBundle/Controller/"
     type:     annotation
     prefix:   /
+
+login:
+    pattern:   /login
+    defaults:  { _controller: StarterUserBundle:Login:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+
+changepassword:
+    pattern:   /changepassword
+    defaults:  { _controller: AppAccountBundle:Login:changepassword }
