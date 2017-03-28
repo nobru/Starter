@@ -15,7 +15,14 @@ class UserType extends AbstractType
             ->add('name')
             ->add('password', 'password')
             ->add('email')
-            ->add('changepassword')
+            ->add(
+                'changepassword',
+                'checkbox',
+                [
+                    'label'     => 'Change password on next login?',
+                    'required'  => false
+                ]
+            )
             ->add('isActive')
             ->add('roles')
             ->add('accounts')
