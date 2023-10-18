@@ -40,8 +40,8 @@ class UserCreateCommand extends ContainerAwareCommand
         if (!$role) {
             $role = new Role();
             $role
-                ->setName('SUPER ADMIN')
-                ->setRole('ROLE_SUPER_ADMIN');
+                ->setName($input->getArgument('role'))
+                ->setRole($input->getArgument('role'));
 
             $entityManager->persist($role);
         }
