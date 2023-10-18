@@ -37,6 +37,15 @@ class UserCreateCommand extends ContainerAwareCommand
             ->getRepository('StarterUserBundle:Role')
             ->findOneByRole($input->getArgument('role'));
 
+        if (!$role) {
+            $role = new Role();
+            $role
+                ->setName('SUPER ADMIN')
+                ->setRole('ROLE_SUPER_ADMIN');
+
+            $entityManager->persist($role);
+        }
+
         $user->setUsername($input->getArgument('username'));
         $user->setEmail($input->getArgument('email'));
         $user->setPassword($passwordHash);
@@ -46,6 +55,4 @@ class UserCreateCommand extends ContainerAwareCommand
         $entityManager->persist($user);
         $entityManager->flush();
     }
-
-
 }
